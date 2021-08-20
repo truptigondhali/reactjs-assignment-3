@@ -4,6 +4,7 @@ import './App.css';
 function App() {
 
   let [movieinfo,setMovieinfo]=useState(null);
+ 
   let [title,setTitle]=useState("the avengers");
 
   useEffect(()=>{
@@ -15,6 +16,7 @@ function App() {
 
   function readTitle(value){
     setTitle(value);
+   
   }
 
   function getMovieData(){
@@ -34,6 +36,8 @@ function App() {
 
   }
 
+  
+
 
   
 
@@ -46,8 +50,10 @@ function App() {
             <h1>Movie Search</h1>
             <div className="input-group">
               <input type="text" placeholder="Enter Movie Name" onChange={(event)=>{readTitle(event.target.value)}} className="search-field"/>
-              <button className="btn" onClick={getMovieData}>Get Movie</button>
+              <button className="btn" onClick={getMovieData}>Search Movie</button>
             </div>
+           
+
               {
                 movieinfo?.Error===undefined?(
               
@@ -66,6 +72,7 @@ function App() {
                               <p><strong>Language</strong> :{movieinfo?.Language}</p>
                               <p><strong>Release Date</strong> :{movieinfo?.Released}</p>
                               <p><strong>Runtime</strong> :{movieinfo?.Runtime}</p>
+                              <p><strong>IMDB Rating</strong> :{movieinfo?.imdbRating}</p>
 
                               <div className="ratings">
 
